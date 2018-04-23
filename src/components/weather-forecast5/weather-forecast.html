@@ -1,0 +1,49 @@
+<md-card flex flex-sm="90" flex-xs="95" 
+	class="weather-forecast-card" 
+	md-colors="{'backgroundColor': 'blue-700'}" 
+	layout="column" 
+	layout-align="start center">
+
+	<div class="weather-forecast-header">
+		5 DAY WEATHER FORECAST {{weatherForecast5Ctrl.weatherData.city.name}},&nbsp;{{weatherForecast5Ctrl.weatherData.city.country}}
+	</div>
+
+	<div layout-margin flex layout-fill layout="row">
+		<span flex></span>
+		<span flex layout-margin layout="row" layout-align="center center" 
+			ng-repeat="hour in weatherForecast5Ctrl.hourTemplate track by $index">
+			{{(hour < 10 ? '0' : '') + hour}}
+		</span>
+	</div>
+
+	<span flex layout-margin layout-fill layout="row"
+		ng-repeat="(dateKey, dataDaily) in weatherForecast5Ctrl.weatherData.listByDate">
+
+		<span flex layout="column" layout-align="center start">
+			{{dateKey | date: 'EEE'}} {{dateKey | date: 'dd'}} {{dateKey | date: 'MMM'}}
+		</span>
+
+		<span flex 
+			class="day-cell"
+			ng-repeat="hour in weatherForecast5Ctrl.hourTemplate track by $index" 
+			md-colors="{{ {'backgroundColor': weatherForecast5Ctrl.hourBGTemplate[$index]} }}">
+
+			<span flex ng-if="dataDaily[hour]" layout="column" layout-align="center center">
+
+				<span layout="row" layout-align="start center">
+					<img hide-xs hide-sm ng-src="{{weatherForecast5Ctrl.weatherIcon.iconUrl('owm', dataDaily[hour].weather[0].icon)}}"> 
+						{{dataDaily[hour].weather[0].main}}
+				</span>
+
+				<span layout="column" layout-align="start start">
+					<span>{{dataDaily[hour].main.temp | number:0}}&#176;C</span>
+					<span hide-xs hide-sm>{{dataDaily[hour].main.pressure | number:0}} mmHg</span>
+					<span hide-xs hide-sm>{{dataDaily[hour].wind.speed | number:0}} m/s</span>
+				</span>
+			</span>
+
+		</span>
+
+	</span>
+
+</md-card>
