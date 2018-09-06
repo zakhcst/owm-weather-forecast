@@ -8,10 +8,10 @@
 
 ```bash
 # clone repo
-$ git clone https://github.com/zakhcst/weather-forecast.git
+$ git clone https://github.com/zakhcst/owm-weather-forecast.git
 
 # change directory to your app
-$ cd my-app
+$ cd owm-weather-forecast
 
 # install the dependencies with npm
 $ npm install
@@ -20,12 +20,11 @@ $ npm install
 $ npm start
 
 # or start local express server serving from dist/
-$ cd express-dist
+$ cd express-serve-dist
 $ npm start
 
-# or start local firebase server serving from firebase/dist/
-$ cd firebase 
-$ firebase serve --only hosting
+# or build the project to firebase/dist/
+$ npm run build
 ```
 
 Go to [http://localhost:8080](http://localhost:8080) in your browser.
@@ -55,4 +54,4 @@ The registered account has a limitations for up to 60 requests per minute in its
 
 [MIT](/LICENSE)
 
-![alt text](https://raw.githubusercontent.com/zakhcst/weather-forecast/master/src/public/preview.png)
+![alt text](https://raw.githubusercontent.com/zakhcst/owm-weather-forecast/master/src/public/preview.png)

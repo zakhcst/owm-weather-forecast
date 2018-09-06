@@ -11,11 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zakhcst/weather-forecast.git"
+    "url": "https://github.com/zakhcst/owm-weather-forecast.git"
   },
   "author": "ZTT",
   "license": "MIT",
-  "homepage": "https://github.com/zakhcst/weather-forecast",
+  "homepage": "https://github.com/zakhcst/owm-weather-forecast",
   "dependencies": {
     "angular": "^1.6.9",
     "angular-animate": "^1.6.9",
